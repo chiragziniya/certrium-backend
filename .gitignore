@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# Environment Variables
+.env
+.env.*
+
+# Django
+db.sqlite3
+media/
+staticfiles/
+
+# Logs
+*.log
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# macOS
+.DS_Store
+
+# Linux
+*.swp
+
+# Testing
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Migrations cache
+*.mo
+*.pot
+
+# Node
+node_modules/
+
+# Gunicorn
+gunicorn.sock
+
+# Docker
+docker-data/
+
+# Temporary
+tmp/
+temp/
