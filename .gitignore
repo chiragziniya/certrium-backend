@@ -1,7 +1,8 @@
 # Python
 *.py[cod]
-*$py.class
 __pycache__/
+*$py.class
+
 
 # Virtual Environment
 .venv/
