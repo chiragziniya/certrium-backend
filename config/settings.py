@@ -229,7 +229,7 @@ def environment_callback(request):
     if request.user.is_superuser:
         return ["Super Admin", "danger"]
 
-    return ["Certrium", "info"]
+    return ["Vaultix", "info"]
 
 
 UNFOLD = {
@@ -238,8 +238,8 @@ UNFOLD = {
     # BRANDING
     # =========================================================
 
-    "SITE_TITLE": "Certrium Admin",
-    "SITE_HEADER": "Certrium",
+    "SITE_TITLE": "Vaultix Admin",
+    "SITE_HEADER": "Vaultix",
     "SITE_SUBHEADER": "Trust Verification Infrastructure",
     # "SITE_ICON": lambda request: static("formula/images/logo.svg"),
     # "SITE_LOGO": {
