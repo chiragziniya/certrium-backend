@@ -46,7 +46,7 @@ jobs:
             echo "Collecting static files..."
             python manage.py collectstatic --noinput
 
-            echo "Restarting service..."
+            echo "Restarting services..."
             sudo systemctl restart certrium
 
             echo "Deployment successful"
