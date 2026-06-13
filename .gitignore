@@ -1,52 +1,113 @@
 # Python
 *.py[cod]
 __pycache__/
+*.so
 *$py.class
-
+*.egg
+*.egg-info/
+dist/
+build/
 
 # Virtual Environment
 .venv/
 venv/
 env/
+ENV/
+.env.local
+.env.*.local
 
 # Environment Variables
 .env
 .env.*
+!.env.example
 
 # Django
 db.sqlite3
+db.sqlite3-journal
+*.db
 media/
 staticfiles/
+/static/
+*.pot
+*.mo
 
 # Logs
 *.log
+logs/
+*.log.*
 
-# VS Code
+# IDEs
 .vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.sublime-workspace
+*.sublime-project
+.netrc
 
 # PyCharm
 .idea/
+*.iml
+*.iws
+*.ipr
 
 # macOS
 .DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
 
 # Linux
 *.swp
+*.swo
+*~
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
 
 # Testing
 .coverage
+.coverage.*
 htmlcov/
 .pytest_cache/
-
-# Migrations cache
-*.mo
-*.pot
+.tox/
+.hypothesis/
+*.cover
 
 # Node
 node_modules/
+npm-debug.log
+yarn-error.log
 
-# Gunicorn
+# Gunicorn/Server
 gunicorn.sock
+*.pid
+
+# Local development
+.local/
+local_settings.py
+settings_local.py
+
+# OS files
+.DS_Store
+*.swp
+*.swo
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# Docker
+docker-compose.override.yml
 
 # Docker
 docker-data/

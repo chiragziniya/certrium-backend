@@ -4,6 +4,8 @@ from django.conf import settings
 from django.db import models
 
 from common.models import BaseModel
+from common.models import MediaProvider
+from common.media_storage import ProviderAwareFileField
 
 
 class PaymentTransaction(BaseModel):
@@ -211,7 +213,15 @@ class Invoice(BaseModel):
         null=True
     )
 
-    pdf_file = models.FileField(
+    media_provider = models.CharField(
+        max_length=20,
+        choices=MediaProvider.choices,
+        default=MediaProvider.AUTO,
+        db_index=True,
+        help_text="Where this invoice PDF is stored.",
+    )
+
+    pdf_file = ProviderAwareFileField(
         upload_to="payments/invoices/",
         blank=True,
         null=True

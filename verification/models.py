@@ -4,6 +4,8 @@ from django.conf import settings
 from django.db import models
 
 from common.models import BaseModel
+from common.models import MediaProvider
+from common.media_storage import ProviderAwareFileField
 from institutions.models import Institution
 
 
@@ -165,7 +167,15 @@ class CredentialDocument(BaseModel):
         default=DocumentType.ORIGINAL
     )
 
-    file = models.FileField(
+    media_provider = models.CharField(
+        max_length=20,
+        choices=MediaProvider.choices,
+        default=MediaProvider.AUTO,
+        db_index=True,
+        help_text="Where this credential document file is stored.",
+    )
+
+    file = ProviderAwareFileField(
         upload_to="verification/documents/"
     )
 

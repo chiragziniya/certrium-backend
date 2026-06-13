@@ -1,0 +1,6 @@
+/* Suppress Django's server-time timezone mismatch note on date/time fields.
+   The JS override in admin.js already prevents the element from being
+   created; this rule is a safety net for any server-rendered instances. */
+.timezonewarning {
+    display: none !important;
+}

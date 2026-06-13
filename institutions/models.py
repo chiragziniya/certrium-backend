@@ -4,7 +4,8 @@ from django.conf import settings
 from django.db import models
 from django.utils.text import slugify
 
-from common.models import BaseModel
+from common.models import BaseModel, MediaProvider
+from common.media_storage import ProviderAwareFileField, ProviderAwareImageField
 
 
 class Institution(BaseModel):
@@ -53,7 +54,15 @@ class Institution(BaseModel):
         null=True
     )
 
-    logo = models.ImageField(
+    media_provider = models.CharField(
+        max_length=20,
+        choices=MediaProvider.choices,
+        default=MediaProvider.AUTO,
+        db_index=True,
+        help_text="Where this institution's media (e.g., logo) is stored.",
+    )
+
+    logo = ProviderAwareImageField(
         upload_to="institutions/logos/",
         blank=True,
         null=True
@@ -533,7 +542,15 @@ class InstitutionDocument(BaseModel):
         max_length=255
     )
 
-    file = models.FileField(
+    media_provider = models.CharField(
+        max_length=20,
+        choices=MediaProvider.choices,
+        default=MediaProvider.AUTO,
+        db_index=True,
+        help_text="Where this document file is stored.",
+    )
+
+    file = ProviderAwareFileField(
         upload_to="institutions/documents/"
     )
 

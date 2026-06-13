@@ -23,7 +23,10 @@ click-plugins==1.1.1.2
 click-repl==0.3.0
 cron-descriptor==1.4.5
 cryptography==48.0.0
+cloudinary==1.44.1
+django-cloudinary-storage==0.3.0
 Django==5.2.14
+django-unfold==0.91.0
 django-allauth==65.17.0
 django-celery-beat==2.9.0
 django-cors-headers==4.9.0
@@ -106,7 +109,7 @@ tzlocal==5.3.1
 uritemplate==4.2.0
 urllib3==2.7.0
 uvicorn==0.47.0
-uvloop==0.22.1
+uvloop==0.22.1; platform_system != "Windows"
 vine==5.1.0
 watchfiles==1.2.0
 wcwidth==0.7.0

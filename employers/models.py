@@ -5,6 +5,8 @@ from django.db import models
 from django.utils.text import slugify
 
 from common.models import BaseModel
+from common.models import MediaProvider
+from common.media_storage import ProviderAwareFileField, ProviderAwareImageField
 
 
 class Employer(BaseModel):
@@ -59,7 +61,15 @@ class Employer(BaseModel):
         null=True
     )
 
-    logo = models.ImageField(
+    media_provider = models.CharField(
+        max_length=20,
+        choices=MediaProvider.choices,
+        default=MediaProvider.AUTO,
+        db_index=True,
+        help_text="Where this employer's media (e.g., logo) is stored.",
+    )
+
+    logo = ProviderAwareImageField(
         upload_to="employers/logos/",
         blank=True,
         null=True
@@ -321,7 +331,15 @@ class EmployerVerificationReport(BaseModel):
         related_name="generated_verification_reports"
     )
 
-    report_file = models.FileField(
+    media_provider = models.CharField(
+        max_length=20,
+        choices=MediaProvider.choices,
+        default=MediaProvider.AUTO,
+        db_index=True,
+        help_text="Where this report file is stored.",
+    )
+
+    report_file = ProviderAwareFileField(
         upload_to="verification/reports/",
         blank=True,
         null=True
